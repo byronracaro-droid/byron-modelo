@@ -6,7 +6,7 @@ import plotly.express as px
 import plotly.io as pio
 from fpdf import FPDF
 import datetime
-
+import statsmodels as sm
 
 def cargar_modelos():
     modelo = joblib.load("modelo.joblib")
@@ -103,7 +103,6 @@ def main():
             Xs = scaler.transform(X)
             pred = modelo.predict(Xs)
             st.success(f"Precio estimado: ${pred[0]*100000:.2f}")
-
 
 if __name__ == "__main__":
     main()
